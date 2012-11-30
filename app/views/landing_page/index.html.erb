@@ -2,6 +2,8 @@
 
 <p><em>Warning: Many of the following pages are broken. This is an Alpha release.</em></p>
 
+<p><%= link_to "Sign in", new_user_session_path %> | <%= link_to "Sign out", destroy_user_session_path %> | <%= link_to "Sign up", new_user_registration_path %></p>
+
 <p><%= link_to "Language Projects", language_projects_path %></p>
 <ul>
 <% LanguageProject.all.each do |language_project| %>
