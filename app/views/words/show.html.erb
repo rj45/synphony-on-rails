@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Language project:</b>
+  <%= @word.language_project %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @word.name %>
+</p>
+
+<p>
+  <b>Text frequency:</b>
+  <%= @word.text_frequency %>
+</p>
+
+
+<%= link_to 'Edit', edit_word_path(@word) %> |
+<%= link_to 'Back', words_path %>

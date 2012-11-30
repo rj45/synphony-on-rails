@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Language project:</b>
+  <%= @grapheme.language_project %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @grapheme.name %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @grapheme.category %>
+</p>
+
+<p>
+  <b>Zero spaced:</b>
+  <%= @grapheme.zero_spaced %>
+</p>
+
+<p>
+  <b>Word frequency:</b>
+  <%= @grapheme.word_frequency %>
+</p>
+
+<p>
+  <b>Text frequency:</b>
+  <%= @grapheme.text_frequency %>
+</p>
+
+
+<%= link_to 'Edit', edit_grapheme_path(@grapheme) %> |
+<%= link_to 'Back', graphemes_path %>

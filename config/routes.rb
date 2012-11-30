@@ -1,4 +1,51 @@
 Synphony::Application.routes.draw do
+  resources :api_keys
+
+
+  namespace :api, defaults: { format: 'json' } do
+    namespace :simplified do
+      resource :login
+      resources :projects
+      resources :projects do
+        resources :words
+        # resources :known_spelling_patterns
+      end
+    end
+
+    namespace :v1 do
+      # resources :language_projects
+      # resources :graphemes
+      # resources :phonemes
+      # resources :spelling_patterns
+      # resources :words
+      # resources :sentences
+      # resources :sequences
+    end
+  end
+
+
+  resources :user_language_projects
+
+
+  resources :language_projects
+
+  resources :language_projects do
+    resources :user_spelling_patterns
+    resources :sequence_spelling_patterns
+    resources :sequences
+    resources :sentence_spelling_patterns
+    resources :sentence_words
+    resources :sentences
+    resources :word_spelling_patterns
+    resources :words
+    resources :spelling_patterns
+    resources :phonemes
+    resources :graphemes
+  end
+
+
+  devise_for :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +95,7 @@ Synphony::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'landing_page#index'
 
   # See how all your routes lay out with "rake routes"
 

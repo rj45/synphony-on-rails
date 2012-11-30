@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Language project:</b>
+  <%= @sequence.language_project %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @sequence.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_sequence_path(@sequence) %> |
+<%= link_to 'Back', sequences_path %>

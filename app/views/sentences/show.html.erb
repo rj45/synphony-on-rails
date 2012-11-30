@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Language project:</b>
+  <%= @sentence.language_project %>
+</p>
+
+<p>
+  <b>Reference:</b>
+  <%= @sentence.reference %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @sentence.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_sentence_path(@sentence) %> |
+<%= link_to 'Back', sentences_path %>

@@ -1,0 +1,33 @@
+<h1>Listing phonemes</h1>
+
+<table>
+  <tr>
+    <th>Language project</th>
+    <th>Name</th>
+    <th>Ipa</th>
+    <th>Category</th>
+    <th>Word frequency</th>
+    <th>Text frequency</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @phonemes.each do |phoneme| %>
+  <tr>
+    <td><%= phoneme.language_project %></td>
+    <td><%= phoneme.name %></td>
+    <td><%= phoneme.ipa %></td>
+    <td><%= phoneme.category %></td>
+    <td><%= phoneme.word_frequency %></td>
+    <td><%= phoneme.text_frequency %></td>
+    <td><%= link_to 'Show', phoneme %></td>
+    <td><%= link_to 'Edit', edit_phoneme_path(phoneme) %></td>
+    <td><%= link_to 'Destroy', phoneme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Phoneme', new_phoneme_path %>

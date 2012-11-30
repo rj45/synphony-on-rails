@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Position:</b>
+  <%= @word_spelling_pattern.position %>
+</p>
+
+<p>
+  <b>Word:</b>
+  <%= @word_spelling_pattern.word %>
+</p>
+
+<p>
+  <b>Spelling pattern:</b>
+  <%= @word_spelling_pattern.spelling_pattern %>
+</p>
+
+
+<%= link_to 'Edit', edit_word_spelling_pattern_path(@word_spelling_pattern) %> |
+<%= link_to 'Back', word_spelling_patterns_path %>

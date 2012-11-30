@@ -1,0 +1,104 @@
+#!/usr/bin/env ruby
+
+APP_PATH = File.expand_path('../../config/application',  __FILE__)
+require File.expand_path('../../config/environment',  __FILE__)
+
+language_slug = ARGV[0]
+json_file = ARGV[1]
+
+if not language_slug or not json_file
+  puts "Usage: script/import <language_slug> <json_file>"
+  exit 1
+end
+
+project = LanguageProject.where(slug: language_slug).first
+
+if not project
+  puts "Could not find language project with slug #{language_slug}"
+  puts "Create the language project first before importing"
+  exit 1
+end
+
+data = MultiJson.decode(File.read(json_file), symbolize_keys: true)
+
+if not data
+  puts "no data"
+  exit 1
+end
+
+@id_translation = {}
+
+def translate_id(id)
+  reference = @id_translation[id]
+  if reference.nil?
+  #   object[key] = reference
+  # else
+    warn "ID #{id} not found"
+  end
+  reference
+end
+
+data[:graphemes].each do |grapheme_data|
+  id = grapheme_data[:id]
+  grapheme_data.delete(:id)
+  grapheme_data.delete(:frequency)
+  grapheme = project.graphemes.where(name: grapheme_data[:name]).first
+  if grapheme
+    grapheme.update_attributes!(grapheme_data)
+  else
+    grapheme = project.graphemes.create!(grapheme_data)
+  end
+  @id_translation[id] = grapheme
+end
+
+data[:phonemes].each do |phoneme_data|
+  id = phoneme_data[:id]
+  phoneme_data.delete(:id)
+  phoneme_data.delete(:frequency)
+  phoneme = project.phonemes.where(name: phoneme_data[:name]).first
+  if phoneme
+    phoneme.update_attributes!(phoneme_data)
+  else
+    phoneme = project.phonemes.create!(phoneme_data)
+  end
+  @id_translation[id] = phoneme
+end
+
+
+data[:spelling_patterns].each do |spelling_pattern_data|
+  id = spelling_pattern_data[:id]
+  grapheme = translate_id(spelling_pattern_data[:grapheme])
+  phoneme = translate_id(spelling_pattern_data[:phoneme])
+  spelling_pattern = project.spelling_patterns.
+      where(grapheme_id: grapheme.id).
+      where(phoneme_id: phoneme.id).first
+  spelling_pattern ||= project.spelling_patterns.build
+  spelling_pattern.grapheme = grapheme
+  spelling_pattern.phoneme = phoneme
+  spelling_pattern.save!
+  @id_translation[id] = spelling_pattern
+end
+
+data[:words].each do |word_data|
+  id = word_data[:id]
+  word_data.delete(:id)
+  word_data.delete(:frequency)
+  spelling_patterns = word_data[:spelling_patterns].map {|sp| translate_id(sp) }
+  word_data.delete(:spelling_patterns)
+  word = project.words.where(name: word_data[:name]).first
+  if word
+    word.update_attributes!(word_data)
+  else
+    word = project.words.create!(word_data)
+  end
+  index = 0
+  spelling_patterns.each do |spelling_pattern|
+    index += 1
+    wsp = word.word_spelling_patterns.where(spelling_pattern_id: spelling_pattern.id).first
+    wsp ||= word.word_spelling_patterns.build
+    wsp.position = index
+    wsp.spelling_pattern = spelling_pattern
+    wsp.save!
+  end
+  @id_translation[id] = word
+end

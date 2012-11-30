@@ -1,0 +1,27 @@
+<h1>Listing sentence_words</h1>
+
+<table>
+  <tr>
+    <th>Position</th>
+    <th>Word</th>
+    <th>Sentence</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sentence_words.each do |sentence_word| %>
+  <tr>
+    <td><%= sentence_word.position %></td>
+    <td><%= sentence_word.word %></td>
+    <td><%= sentence_word.sentence %></td>
+    <td><%= link_to 'Show', sentence_word %></td>
+    <td><%= link_to 'Edit', edit_sentence_word_path(sentence_word) %></td>
+    <td><%= link_to 'Destroy', sentence_word, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sentence word', new_sentence_word_path %>

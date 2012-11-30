@@ -1,0 +1,18 @@
+<%= simple_form_for([@language_project, @user_spelling_pattern]) do |f| %>
+  <% if @user_spelling_pattern.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_spelling_pattern.errors.count, "error") %> prohibited this user_spelling_pattern from being saved:</h2>
+
+      <ul>
+      <% @user_spelling_pattern.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :position %>
+  <%= f.association :spelling_pattern, :collection => @language_project.spelling_patterns %>
+  <%= f.input :focus %>
+  <%= f.button :submit %>
+<% end %>

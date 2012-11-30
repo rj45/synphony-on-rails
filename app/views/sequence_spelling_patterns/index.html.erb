@@ -1,0 +1,27 @@
+<h1>Listing sequence_spelling_patterns</h1>
+
+<table>
+  <tr>
+    <th>Position</th>
+    <th>Sequence</th>
+    <th>Spelling pattern</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sequence_spelling_patterns.each do |sequence_spelling_pattern| %>
+  <tr>
+    <td><%= sequence_spelling_pattern.position %></td>
+    <td><%= sequence_spelling_pattern.sequence %></td>
+    <td><%= sequence_spelling_pattern.spelling_pattern %></td>
+    <td><%= link_to 'Show', sequence_spelling_pattern %></td>
+    <td><%= link_to 'Edit', edit_sequence_spelling_pattern_path(sequence_spelling_pattern) %></td>
+    <td><%= link_to 'Destroy', sequence_spelling_pattern, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sequence spelling pattern', new_sequence_spelling_pattern_path %>

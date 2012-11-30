@@ -1,0 +1,41 @@
+<%= form_for(@phoneme) do |f| %>
+  <% if @phoneme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@phoneme.errors.count, "error") %> prohibited this phoneme from being saved:</h2>
+
+      <ul>
+      <% @phoneme.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :language_project %><br />
+    <%= f.text_field :language_project %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :ipa %><br />
+    <%= f.text_field :ipa %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :word_frequency %><br />
+    <%= f.number_field :word_frequency %>
+  </div>
+  <div class="field">
+    <%= f.label :text_frequency %><br />
+    <%= f.number_field :text_frequency %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

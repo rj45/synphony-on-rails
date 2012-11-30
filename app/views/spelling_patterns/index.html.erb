@@ -1,0 +1,31 @@
+<h1>Listing spelling_patterns</h1>
+
+<table>
+  <tr>
+    <th>Language project</th>
+    <th>Grapheme</th>
+    <th>Phoneme</th>
+    <th>Word frequency</th>
+    <th>Text frequency</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @spelling_patterns.each do |spelling_pattern| %>
+  <tr>
+    <td><%= spelling_pattern.language_project %></td>
+    <td><%= spelling_pattern.grapheme %></td>
+    <td><%= spelling_pattern.phoneme %></td>
+    <td><%= spelling_pattern.word_frequency %></td>
+    <td><%= spelling_pattern.text_frequency %></td>
+    <td><%= link_to 'Show', spelling_pattern %></td>
+    <td><%= link_to 'Edit', edit_spelling_pattern_path(spelling_pattern) %></td>
+    <td><%= link_to 'Destroy', spelling_pattern, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Spelling pattern', new_spelling_pattern_path %>

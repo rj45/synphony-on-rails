@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Position:</b>
+  <%= @sentence_word.position %>
+</p>
+
+<p>
+  <b>Word:</b>
+  <%= @sentence_word.word %>
+</p>
+
+<p>
+  <b>Sentence:</b>
+  <%= @sentence_word.sentence %>
+</p>
+
+
+<%= link_to 'Edit', edit_sentence_word_path(@sentence_word) %> |
+<%= link_to 'Back', sentence_words_path %>

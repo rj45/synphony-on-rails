@@ -1,0 +1,33 @@
+<h1>Listing language_projects</h1>
+
+<table>
+  <tr>
+    <th>Slug</th>
+    <th>English name</th>
+    <th>Local name</th>
+    <th>Script</th>
+    <th>Public</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @language_projects.each do |language_project| %>
+  <tr>
+    <td><%= language_project.slug %></td>
+    <td><%= language_project.english_name %></td>
+    <td><%= language_project.local_name %></td>
+    <td><%= language_project.script %></td>
+    <td><%= language_project.public %></td>
+    <td><%= language_project.user %></td>
+    <td><%= link_to 'Show', language_project %></td>
+    <td><%= link_to 'Edit', edit_language_project_path(language_project) %></td>
+    <td><%= link_to 'Destroy', language_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Language project', new_language_project_path %>

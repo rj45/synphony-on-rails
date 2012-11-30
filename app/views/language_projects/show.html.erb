@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Slug:</b>
+  <%= @language_project.slug %>
+</p>
+
+<p>
+  <b>English name:</b>
+  <%= @language_project.english_name %>
+</p>
+
+<p>
+  <b>Local name:</b>
+  <%= @language_project.local_name %>
+</p>
+
+<p>
+  <b>Script:</b>
+  <%= @language_project.script %>
+</p>
+
+<p>
+  <b>Public:</b>
+  <%= @language_project.public %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @language_project.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_language_project_path(@language_project) %> |
+<%= link_to 'Back', language_projects_path %>

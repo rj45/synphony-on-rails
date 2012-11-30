@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @api_key.user %>
+</p>
+
+<p>
+  <b>Auth token:</b>
+  <%= @api_key.auth_token %>
+</p>
+
+<p>
+  <b>Application:</b>
+  <%= @api_key.application %>
+</p>
+
+<p>
+  <b>Version:</b>
+  <%= @api_key.version %>
+</p>
+
+
+<%= link_to 'Edit', edit_api_key_path(@api_key) %> |
+<%= link_to 'Back', api_keys_path %>

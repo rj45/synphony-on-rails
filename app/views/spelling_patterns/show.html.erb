@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Language project:</b>
+  <%= @spelling_pattern.language_project %>
+</p>
+
+<p>
+  <b>Grapheme:</b>
+  <%= @spelling_pattern.grapheme %>
+</p>
+
+<p>
+  <b>Phoneme:</b>
+  <%= @spelling_pattern.phoneme %>
+</p>
+
+<p>
+  <b>Word frequency:</b>
+  <%= @spelling_pattern.word_frequency %>
+</p>
+
+<p>
+  <b>Text frequency:</b>
+  <%= @spelling_pattern.text_frequency %>
+</p>
+
+
+<%= link_to 'Edit', edit_spelling_pattern_path(@spelling_pattern) %> |
+<%= link_to 'Back', spelling_patterns_path %>

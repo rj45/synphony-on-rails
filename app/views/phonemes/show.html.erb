@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Language project:</b>
+  <%= @phoneme.language_project %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @phoneme.name %>
+</p>
+
+<p>
+  <b>Ipa:</b>
+  <%= @phoneme.ipa %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @phoneme.category %>
+</p>
+
+<p>
+  <b>Word frequency:</b>
+  <%= @phoneme.word_frequency %>
+</p>
+
+<p>
+  <b>Text frequency:</b>
+  <%= @phoneme.text_frequency %>
+</p>
+
+
+<%= link_to 'Edit', edit_phoneme_path(@phoneme) %> |
+<%= link_to 'Back', phonemes_path %>

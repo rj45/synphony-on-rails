@@ -1,0 +1,33 @@
+<h1>Listing graphemes</h1>
+
+<table>
+  <tr>
+    <th>Language project</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Zero spaced</th>
+    <th>Word frequency</th>
+    <th>Text frequency</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @graphemes.each do |grapheme| %>
+  <tr>
+    <td><%= grapheme.language_project %></td>
+    <td><%= grapheme.name %></td>
+    <td><%= grapheme.category %></td>
+    <td><%= grapheme.zero_spaced %></td>
+    <td><%= grapheme.word_frequency %></td>
+    <td><%= grapheme.text_frequency %></td>
+    <td><%= link_to 'Show', grapheme %></td>
+    <td><%= link_to 'Edit', edit_grapheme_path(grapheme) %></td>
+    <td><%= link_to 'Destroy', grapheme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Grapheme', new_grapheme_path %>

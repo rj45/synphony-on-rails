@@ -1,0 +1,37 @@
+<%= form_for(@spelling_pattern) do |f| %>
+  <% if @spelling_pattern.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spelling_pattern.errors.count, "error") %> prohibited this spelling_pattern from being saved:</h2>
+
+      <ul>
+      <% @spelling_pattern.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :language_project %><br />
+    <%= f.text_field :language_project %>
+  </div>
+  <div class="field">
+    <%= f.label :grapheme %><br />
+    <%= f.text_field :grapheme %>
+  </div>
+  <div class="field">
+    <%= f.label :phoneme %><br />
+    <%= f.text_field :phoneme %>
+  </div>
+  <div class="field">
+    <%= f.label :word_frequency %><br />
+    <%= f.text_field :word_frequency %>
+  </div>
+  <div class="field">
+    <%= f.label :text_frequency %><br />
+    <%= f.number_field :text_frequency %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

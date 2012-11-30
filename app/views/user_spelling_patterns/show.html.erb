@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Position:</b>
+  <%= @user_spelling_pattern.position %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @user_spelling_pattern.user %>
+</p>
+
+<p>
+  <b>Spelling pattern:</b>
+  <%= @user_spelling_pattern.spelling_pattern %>
+</p>
+
+<p>
+  <b>Focus:</b>
+  <%= @user_spelling_pattern.focus %>
+</p>
+
+
+<%= link_to 'Edit', edit_language_project_user_spelling_pattern_path(@language_project, @user_spelling_pattern) %> |
+<%= link_to 'Back', language_project_user_spelling_patterns_path(@language_project) %>

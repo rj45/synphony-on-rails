@@ -1,0 +1,2 @@
+module WordSpellingPatternsHelper
+end
