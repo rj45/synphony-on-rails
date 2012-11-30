@@ -26,13 +26,14 @@ gem 'jquery-rails'
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # for easy json api rendering
 gem 'rabl'
 gem 'yajl-ruby'
 
-gem "puma", ">= 1.6.3"
+gem 'unicorn'
+
 gem "pg", ">= 0.14.1"
 gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
 gem "capybara", ">= 1.1.3", :group => :test
