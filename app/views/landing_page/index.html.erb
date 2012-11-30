@@ -1,17 +1,26 @@
-Hello World!
+<h3>Welcome to SynPhony Alpha</h3>
 
+<p><em>Warning: Many of the following pages are broken. This is an Alpha release.</em></p>
+
+<p><%= link_to "Language Projects", language_projects_path %></p>
 <ul>
-  <li><%= link_to "Language Projects", language_projects_path %></li>
-  <li><%= link_to "User Language Projects", user_language_projects_path %></li>
-  <li><%= link_to "Grapheme", graphemes_path %></li>
-  <li><%= link_to "Phoneme", phonemes_path %></li>
-  <li><%= link_to "Spelling Patterns", spelling_patterns_path %></li>
-  <li><%= link_to "Words", words_path %></li>
-  <li><%= link_to "Word Spelling Patterns", word_spelling_patterns_path %></li>
-  <li><%= link_to "Sentences", sentences_path %></li>
-  <li><%= link_to "Sentence Words", sentence_words_path %></li>
-  <li><%= link_to "Sentence Spelling Patterns", sentence_spelling_patterns_path %></li>
-  <li><%= link_to "Sequences", sequences_path %></li>
-  <li><%= link_to "Sequence Spelling Patterns", sequence_spelling_patterns_path %></li>
-  <li><%= link_to "User Spelling Patterns", user_spelling_patterns_path %></li>
+<% LanguageProject.all.each do |language_project| %>
+  <li><strong><%= language_project.english_name %></strong>
+    <ul>
+      <li><%= link_to "User Spelling Patterns", language_project_user_spelling_patterns_path(language_project) %></li>
+      <li><%= link_to "Graphemes", language_project_graphemes_path(language_project) %></li>
+      <li><%= link_to "Phonemes", language_project_phonemes_path(language_project) %></li>
+      <li><%= link_to "Spelling Patterns", language_project_spelling_patterns_path(language_project) %></li>
+      <li><%= link_to "Words", language_project_words_path(language_project) %></li>
+      <li><%= link_to "Word Spelling Patterns", language_project_word_spelling_patterns_path(language_project) %></li>
+      <li><%= link_to "Sentences", language_project_sentences_path(language_project) %></li>
+      <li><%= link_to "Sentence Words", language_project_sentence_words_path(language_project) %></li>
+      <li><%= link_to "Sentence Spelling Patterns", language_project_sentence_spelling_patterns_path(language_project) %></li>
+      <li><%= link_to "Sequences", language_project_sequences_path(language_project) %></li>
+      <li><%= link_to "Sequence Spelling Patterns", language_project_sequence_spelling_patterns_path(language_project) %></li>
+    </ul>
+  </li>
+<% end %>
 </ul>
+
+<p><%= link_to "User Language Projects", user_language_projects_path %></p>
