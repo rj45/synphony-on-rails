@@ -13,7 +13,7 @@ class LanguageProjectsController < ApplicationController
   # GET /language_projects/1
   # GET /language_projects/1.json
   def show
-    @language_project = LanguageProject.find(params[:id])
+    @language_project = LanguageProject.find_by_slug(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
