@@ -1,4 +1,4 @@
-collection @words, :root => :words
+collection @words, :root => :words, :object_root => false
 
 attributes :id, :name
 node :spelling_patterns do |word|
